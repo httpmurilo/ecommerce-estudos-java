@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+# Compiled Files
+*.class
+bin/
+build/
+/bin1/
+java/build/**
