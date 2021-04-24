@@ -5,10 +5,10 @@ import com.minhaempresa.commerce.Model.Category;
 import com.minhaempresa.commerce.Repository.Interfaces.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 public class CategoryController {
@@ -16,9 +16,15 @@ public class CategoryController {
     @Autowired
     ICategoryRepository _repository;
 
-    @PostMapping("/category")
-    @ResponseStatus(HttpStatus.CREATED)
-    Category Create(@RequestBody Category category){
-        return _repository.save(category);
+    @RequestMapping(value = "/category", method = RequestMethod.POST)
+    public ResponseEntity<String> persistCategory(@Valid @RequestBody  Category category) {
+            _repository.save(category);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Sucess");
+    }
+
+    @RequestMapping(value = "/category", method = RequestMethod.GET)
+    public ResponseEntity<String> getAllCategory() {
+        var result = _repository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body();
     }
 }
