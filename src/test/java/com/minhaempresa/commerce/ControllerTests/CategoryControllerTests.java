@@ -3,6 +3,8 @@ package com.minhaempresa.commerce.ControllerTests;
 import com.minhaempresa.commerce.Model.Category;
 import org.junit.Test;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.client.RestTemplate;
 
 public class CategoryControllerTests {
 

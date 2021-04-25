@@ -11,20 +11,43 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
+@RequestMapping("/category")
 public class CategoryController {
 
     @Autowired
     ICategoryRepository _repository;
 
-    @RequestMapping(value = "/category", method = RequestMethod.POST)
+    @PostMapping
     public ResponseEntity<String> persistCategory(@Valid @RequestBody  Category category) {
             _repository.save(category);
             return ResponseEntity.status(HttpStatus.CREATED).body("Sucess");
     }
 
-    @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public ResponseEntity<String> getAllCategory() {
-        var result = _repository.findAll();
-        return ResponseEntity.status(HttpStatus.OK).body();
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateCategory(@Valid @RequestBody  Category category) {
+        _repository.save(category);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("resource updated successfully");
+    }
+
+    @GetMapping
+    public ResponseEntity getAllCategory() {
+        return ResponseEntity.ok(_repository.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity getById(@PathVariable("id") Integer id) {
+        return _repository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteById(@PathVariable("id") Integer id) {
+        if (id == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        _repository.deleteById(id);
+        return ResponseEntity.ok("sucess");
+
     }
 }
