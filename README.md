@@ -7,7 +7,6 @@ A proposta é usar conceitos como API,MVC, Spring jdbc, entre outros.
 
 ```
 http://localhost:8089/actuator/health
-
 ```
 
 Retorno esperado :
@@ -17,4 +16,6 @@ Retorno esperado :
 ```
 
 Fluxo da aplicação : 
+
+Ator Funcionário : 
 
