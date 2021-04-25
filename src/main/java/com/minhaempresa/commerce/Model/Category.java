@@ -7,6 +7,8 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //1:1
+    @Column(name = "id")
     private Integer Id;
     private String Name;
 

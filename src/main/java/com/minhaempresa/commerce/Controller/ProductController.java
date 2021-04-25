@@ -17,31 +17,31 @@ public class ProductController {
     IProductRepository _repository;
 
     @PostMapping
-    public ResponseEntity<String> persistCategory(@Valid @RequestBody Product product) {
+    public ResponseEntity<String> persistProduct(@Valid @RequestBody Product product) {
         _repository.save(product);
         return ResponseEntity.status(HttpStatus.CREATED).body("Sucess");
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateCategory(@Valid @RequestBody  Product product) {
+    public ResponseEntity<String> updateProduct(@Valid @RequestBody  Product product) {
         _repository.save(product);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("resource updated successfully");
     }
 
     @GetMapping
-    public ResponseEntity getAllCategory() {
+    public ResponseEntity getAllProduct() {
         return ResponseEntity.ok(_repository.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getById(@PathVariable("id") Integer id) {
+    public ResponseEntity getProductById(@PathVariable("id") Integer id) {
         return _repository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteById(@PathVariable("id") Integer id) {
+    public ResponseEntity deleteProductById(@PathVariable("id") Integer id) {
         if (id == null) {
             return ResponseEntity.badRequest().build();
         }
