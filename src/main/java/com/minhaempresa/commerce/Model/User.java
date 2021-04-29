@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Entity
@@ -46,7 +49,8 @@ public class User {
     }
 
     public void setLastLogin(Date lastLogin) {
-        LastLogin = lastLogin;
+        Date date = new Date();
+        LastLogin = date;
     }
 
     public Date getUpdatedAt() {
@@ -54,7 +58,6 @@ public class User {
     }
 
     public void setUpdatedAt(Date updatedAt) {
-        UpdatedAt = updatedAt;
     }
 
     public String getEmail() {
@@ -74,5 +77,15 @@ public class User {
     private Date LastLogin;
     private Date UpdatedAt;
     private String Email;
+
+    public String getHashPassword() {
+        return HashPassword;
+    }
+
+    public void setHashPassword(String hashPassword) {
+        HashPassword = hashPassword;
+    }
+
+    private String HashPassword;
 
 }

@@ -1,4 +1,4 @@
-package com.minhaempresa.commerce.ControllerTests;
+package com.minhaempresa.ControllerTests;
 
 import com.minhaempresa.commerce.Model.Category;
 import org.aspectj.weaver.ast.Var;
