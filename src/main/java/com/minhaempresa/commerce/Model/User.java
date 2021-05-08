@@ -41,7 +41,8 @@ public class User {
     }
 
     public void setCreatedAt(Date createdAt) {
-        CreatedAt = createdAt;
+        Date date = new Date();
+        createdAt = date;
     }
 
     public Date getLastLogin() {
