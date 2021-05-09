@@ -25,27 +25,8 @@ public class Product {
         Name = name;
     }
 
-
-    public String getSummary() {
-        return Summary;
-    }
-
-    public void setSummary(String summary) {
-        Summary = summary;
-    }
-
-    public String getImageFile() {
-        return ImageFile;
-    }
-
-    public void setImageFile(String imageFile) {
-        ImageFile = imageFile;
-    }
-
     private String Name;
     private Integer categoryId;
-    private String Summary;
-    private String ImageFile;
 
     public Integer getCategoryId() {
         return categoryId;

@@ -1,5 +1,7 @@
 package com.minhaempresa.commerce.Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Client {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+    @JsonProperty("user_id")
     private User user;
 
     public boolean isHasActiveClient() {
