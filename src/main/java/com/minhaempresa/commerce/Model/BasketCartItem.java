@@ -1,7 +1,6 @@
 package com.minhaempresa.commerce.Model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,14 +14,6 @@ public class BasketCartItem {
         Id = id;
     }
 
-    public double getPrice() {
-        return Price;
-    }
-
-    public void setPrice(double price) {
-        Price = price;
-    }
-
     public List<Product> getProductList() {
         return ProductList;
     }
@@ -34,7 +25,14 @@ public class BasketCartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
-    private double Price;
     @OneToMany
     private List<Product> ProductList ;
+
+    double calculateAllPriceFromItens(List<Product> listOfProducts){
+        double totalPriceToReturn =0;
+        for(Product  item : listOfProducts){
+            totalPriceToReturn += item.getPrice()  * 1;
+        }
+        return totalPriceToReturn;
+    }
 }

@@ -1,6 +1,8 @@
 ### Projeto de estudo com Java
+![example workflow](https://github.com/httpmurilo/ecommerce-estudos-java/actions/workflows/maven-publish.yml/badge.svg)
 
-A proposta é usar conceitos como API,MVC, Spring jdbc, entre outros.
+
+A proposta é usar conceitos como API,MVC, Spring boot, Spring jdbc,jaxb, RabbitMQ. 
 
 
 ### Health Check

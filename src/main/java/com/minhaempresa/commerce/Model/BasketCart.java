@@ -9,6 +9,10 @@ public class BasketCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
+    private Integer cdCliente;
+    @OneToMany
+    private List<BasketCartItem> Itens ;
+    private double TotalPrice;
 
     public Integer getCdCliente() {
         return cdCliente;
@@ -18,10 +22,7 @@ public class BasketCart {
         this.cdCliente = cdCliente;
     }
 
-    private Integer cdCliente;
-    @OneToMany
-    private List<BasketCartItem> Itens ;
-    private double TotalPrice;
+
 
     public Integer getId() {
         return Id;
@@ -40,10 +41,6 @@ public class BasketCart {
     }
 
     public double getTotalPrice() {
-         TotalPrice = 0;
-         for(BasketCartItem item : Itens){
-             TotalPrice += item.getPrice() * 1;
-         }
          return TotalPrice;
     }
 
