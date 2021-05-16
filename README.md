@@ -33,3 +33,8 @@ Ator Cliente :
 1. Possui cadastro de usuario.
 2. Quando realiza a primeira compra com o usuário autenticado, se torna um cliente - a fazer.
 
+BasketCart : 
+
+BasketCartItem : 
+Lista do carrinho do cliente, contém a lista de produtos, uma id que identifica a lista de itens do carrinho.
+BasketCheckout : 

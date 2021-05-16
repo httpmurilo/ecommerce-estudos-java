@@ -79,6 +79,7 @@ public class User {
     private Date UpdatedAt;
     private String Email;
 
+    private String HashPassword;
     public String getHashPassword() {
         return HashPassword;
     }
@@ -87,6 +88,5 @@ public class User {
         HashPassword = hashPassword;
     }
 
-    private String HashPassword;
 
 }

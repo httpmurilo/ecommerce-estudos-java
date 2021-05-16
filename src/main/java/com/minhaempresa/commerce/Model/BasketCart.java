@@ -10,9 +10,19 @@ public class BasketCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private Integer cdCliente;
+    private boolean hasProcessed;
     @OneToMany
     private List<BasketCartItem> Itens ;
-    private double TotalPrice;
+
+    public boolean isHasProcessed() {
+        return hasProcessed;
+    }
+
+    public void setHasProcessed(boolean hasProcessed) {
+        this.hasProcessed = hasProcessed;
+    }
+
+
 
     public Integer getCdCliente() {
         return cdCliente;
@@ -39,15 +49,5 @@ public class BasketCart {
     public void setItens(List<BasketCartItem> itens) {
         Itens = itens;
     }
-
-    public double getTotalPrice() {
-         return TotalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        TotalPrice = totalPrice;
-    }
-
-
 
 }
